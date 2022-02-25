@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @blog %>
+
+<div>
+  <%= link_to "Back to blogs", blogs_path %>
+  <% if user_signed_in? %>
+		<%= link_to "Edit this blog", edit_blog_path(@blog) %> |
+
+		<%= button_to "Destroy this blog", @blog, method: :delete %>
+  <% end %>
+</div>
+
+<h5>Comments</h5>
+<%= render @blog.comments %>
+
+<h5>Add a comment:</h5>
+<%= render 'comments/form' %>
